@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayesha Choudhary &amp; Saaid Bashir — Walima Celebration</title>
+<meta name="description" content="Join us in celebrating the Walima of Saaid Bashir &amp; Ayesha Choudhary on October 24, 2026, at The Aagaz Resort, Nowgam, Srinagar.">
+<meta property="og:title" content="Ayesha Choudhary &amp; Saaid Bashir — Walima Celebration">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f3efe6;
+    --ink:#1f3a2f;
+    --ink-soft:#4a6357;
+    --gold:#a8812f;
+    --gold-light:#d9bf7a;
+    --panel:#fbf9f3;
+    --line:rgba(168,129,47,.35);
+    --serif:"Cormorant Garamond","Times New Roman",serif;
+    --sans:"Jost",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14231c; --ink:#f1ead8; --ink-soft:#b9c4b9;
+      --gold:#d9bf7a; --gold-light:#e8d49c; --panel:#1b2f26; --line:rgba(217,191,122,.35);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;
+    line-height:1.6;overflow-x:hidden;
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  body.locked{overflow:hidden;height:100vh}
+  img{max-width:100%;display:block}
+
+  /* ---------- Opening screen ---------- */
+  #gate{
+    position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+  }
+  .door{
+    position:absolute;top:0;bottom:0;width:50.2%;background:var(--ink);
+    transition:transform 1.6s cubic-bezier(.77,0,.18,1) .15s;
+    background-image:
+      radial-gradient(circle at 50% 50%,transparent 0 38%,rgba(217,191,122,.12) 38.5% 39%,transparent 39.5%),
+      repeating-linear-gradient(45deg,rgba(217,191,122,.05) 0 1px,transparent 1px 18px),
+      repeating-linear-gradient(-45deg,rgba(217,191,122,.05) 0 1px,transparent 1px 18px);
+  }
+  .door.l{left:0;border-right:1px solid var(--gold-light)}
+  .door.r{right:0;border-left:1px solid var(--gold-light)}
+  #gate.open .door.l{transform:translateX(-101%)}
+  #gate.open .door.r{transform:translateX(101%)}
+  .seal{
+    position:relative;z-index:2;text-align:center;color:#f1ead8;
+    transition:opacity .6s ease, transform .8s ease;
+  }
+  #gate.open .seal{opacity:0;transform:scale(.9)}
+  .seal .ring{
+    width:150px;height:150px;border-radius:50%;margin:0 auto 1.6rem;
+    border:1px solid var(--gold-light);display:grid;place-items:center;position:relative;
+    animation:breathe 3.2s ease-in-out infinite;
+  }
+  .seal .ring::before{content:"";position:absolute;inset:8px;border:1px solid rgba(217,191,122,.4);border-radius:50%}
+  .seal .mono{font-family:var(--serif);font-size:2.6rem;font-style:italic;color:var(--gold-light);letter-spacing:.04em}
+  .seal h2{font-family:var(--serif);font-weight:500;font-size:1.7rem;letter-spacing:.04em}
+  .seal p{margin-top:.8rem;font-size:.85rem;letter-spacing:.18em;color:var(--gold-light)}
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.05);opacity:1}}
+  #gate.gone{display:none}
+
+  /* ---------- Music button ---------- */
+  #music{
+    position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);
+    background:var(--panel);color:var(--gold);cursor:pointer;display:none;place-items:center;
+  }
+  #music.show{display:grid}
+  #music svg{width:20px;height:20px}
+  #music:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+  /* ---------- Layout ---------- */
+  section{padding:6rem 1.5rem;text-align:center;position:relative}
+  .wrap{max-width:640px;margin:0 auto}
+  h1,h2,h3{font-family:var(--serif);font-weight:500}
+  .rule{width:90px;height:1px;background:var(--gold);margin:1.6rem auto;position:relative}
+  .rule::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;background:var(--bg);border:1px solid var(--gold);transform:translate(-50%,-50%) rotate(45deg)}
+  .section-title{font-size:clamp(2rem,6vw,2.8rem);color:var(--ink)}
+
+  /* ---------- Hero ---------- */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:18px;border:1px solid var(--line);pointer-events:none;
+  }
+  .hero .bismillah{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.15rem;margin-bottom:2rem}
+  .hero .label{font-size:.82rem;letter-spacing:.3em;color:var(--ink-soft);text-transform:uppercase}
+  .names{margin:1.4rem 0 .6rem}
+  .names .n{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(3.4rem,15vw,6.4rem);line-height:1;color:var(--ink)}
+  .names .amp{display:block;font-family:var(--serif);font-style:italic;font-size:2.2rem;color:var(--gold);margin:.4rem 0}
+  .date{font-family:var(--serif);font-size:1.5rem;letter-spacing:.2em;color:var(--ink)}
+  .hero .verse{margin-top:2.4rem;font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--ink-soft);line-height:1.5}
+  .hero .note{margin-top:1.4rem;color:var(--ink-soft);max-width:30rem;margin-inline:auto}
+  .scroll{margin-top:2.6rem;font-size:.78rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}
+  .scroll span{display:block;width:1px;height:42px;background:var(--gold);margin:.8rem auto 0;animation:drop 2s ease-in-out infinite;transform-origin:top}
+  @keyframes drop{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+  /* Hero entrance — the one orchestrated moment, triggered after the doors open */
+  .hero [data-in]{opacity:0;transform:translateY(18px);transition:opacity 1.1s ease,transform 1.1s ease}
+  body.opened .hero [data-in]{opacity:1;transform:none}
+  body.opened .hero [data-in="1"]{transition-delay:1.1s}
+  body.opened .hero [data-in="2"]{transition-delay:1.5s}
+  body.opened .hero [data-in="3"]{transition-delay:1.9s}
+  body.opened .hero [data-in="4"]{transition-delay:2.3s}
+  body.opened .hero [data-in="5"]{transition-delay:2.7s}
+
+  /* ---------- Countdown ---------- */
+  .count{background:var(--panel)}
+  .count h2{font-size:1.2rem;letter-spacing:.3em;color:var(--ink-soft);text-transform:uppercase;font-family:var(--sans);font-weight:400}
+  .clock{display:flex;justify-content:center;align-items:flex-start;gap:.6rem;margin-top:2rem;flex-wrap:wrap}
+  .unit{min-width:76px}
+  .unit b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(2.6rem,11vw,4rem);line-height:1;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .unit small{font-size:.75rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+  .colon{font-family:var(--serif);font-size:2.4rem;color:var(--gold-light);line-height:1.15}
+  #cd-msg{margin-top:2rem;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--ink-soft)}
+
+  /* ---------- Schedule ---------- */
+  .timeline{list-style:none;margin:3rem auto 0;max-width:420px;position:relative;text-align:left}
+  .timeline::before{content:"";position:absolute;left:92px;top:6px;bottom:6px;width:1px;background:var(--line)}
+  .timeline li{display:grid;grid-template-columns:78px 1fr;gap:0 2.2rem;padding:.9rem 0;position:relative}
+  .timeline li::after{content:"";position:absolute;left:88px;top:1.45rem;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+  .timeline time{font-family:var(--serif);font-size:1.15rem;color:var(--gold);text-align:right;padding-top:.1rem;font-weight:600}
+  .timeline span{font-family:var(--serif);font-size:1.5rem;color:var(--ink);padding-left:.4rem}
+
+  /* ---------- Venue ---------- */
+  .venue{background:var(--panel)}
+  .card{border:1px solid var(--line);padding:2.2rem 1.5rem;margin-top:2.2rem;background:var(--bg)}
+  .card h3{font-size:2rem;color:var(--ink)}
+  .card p{color:var(--ink-soft)}
+  .actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem}
+  .btn{
+    display:inline-block;padding:.85rem 1.6rem;border:1px solid var(--gold);color:var(--gold);
+    text-decoration:none;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;
+    transition:background .3s,color .3s;
+  }
+  .btn:hover{background:var(--gold);color:var(--bg)}
+  .btn.solid{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .btn.solid:hover{background:var(--gold);border-color:var(--gold)}
+
+  /* ---------- Notes ---------- */
+  .notes{display:grid;gap:2.4rem;margin-top:3rem}
+  .note-item h3{font-size:1.8rem;color:var(--ink)}
+  .note-item p{color:var(--ink-soft);max-width:26rem;margin:.4rem auto 0}
+
+  footer{padding:3rem 1.5rem 4rem;text-align:center;color:var(--ink-soft);font-family:var(--serif);font-style:italic;font-size:1.2rem}
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+    .reveal,.hero [data-in]{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body class="locked">
+
+<!-- Opening screen -->
+<div id="gate" role="button" tabindex="0" aria-label="Open your invitation">
+  <div class="door l"></div>
+  <div class="door r"></div>
+  <div class="seal">
+    <div class="ring"><span class="mono" id="monogram">S&amp;A</span></div>
+    <h2>You are invited</h2>
+    <p>TAP TO OPEN</p>
+  </div>
+</div>
+
+<button id="music" aria-label="Toggle music" title="Toggle music">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="icon-on"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+</button>
+<audio id="audio" loop preload="auto">
+  <!-- Put your own music file at assets/wedding-music.mp3 -->
+  <source src="assets/wedding-music.mp3" type="audio/mpeg">
+</audio>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="bismillah" data-in="1">In the name of Allah, the Most Gracious, the Most Merciful</p>
+      <p class="label" data-in="1">Walima Celebration</p>
+      <h1 class="names" data-in="2" aria-label="Saaid and Ayesha">
+        <span class="n" id="n1">Saaid</span>
+        <span class="amp">&amp;</span>
+        <span class="n" id="n2">Ayesha</span>
+      </h1>
+      <p class="date" data-in="3" id="date-short">24 · 10 · 26</p>
+      <p class="verse" data-in="4">Two souls, one destiny,<br>a lifetime written by Allah.</p>
+      <p class="note" data-in="4">Dear friends and family, join us for an evening of love, laughter, duas, and unforgettable memories as we begin our forever.</p>
+      <p class="scroll" data-in="5">Scroll down<span></span></p>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="count">
+    <div class="wrap reveal">
+      <h2>The celebration begins in</h2>
+      <div class="clock" role="timer" aria-live="off">
+        <div class="unit"><b id="cd-d">0</b><small>Days</small></div><div class="colon">:</div>
+        <div class="unit"><b id="cd-h">00</b><small>Hours</small></div><div class="colon">:</div>
+        <div class="unit"><b id="cd-m">00</b><small>Minutes</small></div><div class="colon">:</div>
+        <div class="unit"><b id="cd-s">00</b><small>Seconds</small></div>
+      </div>
+      <p id="cd-msg" hidden></p>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section>
+    <div class="wrap reveal">
+      <h2 class="section-title">Schedule of Events</h2>
+      <div class="rule"></div>
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section class="venue">
+    <div class="wrap reveal">
+      <h2 class="section-title">Location</h2>
+      <div class="rule"></div>
+      <div class="card">
+        <h3 id="venue-name">The Aagaz Resort</h3>
+        <p id="venue-addr">Nowgam, Srinagar</p>
+        <div class="actions">
+          <a class="btn solid" id="btn-map" href="#" target="_blank" rel="noopener">Open in Maps</a>
+          <a class="btn" id="btn-cal" href="#" target="_blank" rel="noopener">Add to Calendar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section>
+    <div class="wrap reveal">
+      <div class="notes">
+        <div class="note-item">
+          <h3>Dress Code</h3>
+          <p>We kindly ask guests to avoid deep red and maroon attire for the celebration.</p>
+        </div>
+        <div class="note-item">
+          <h3>Gift Preference</h3>
+          <p>Kindly, no boxed gifts please.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>With love, Saaid &amp; Ayesha</footer>
+
+<script>
+/* ============================================================
+   EDIT YOUR DETAILS HERE
+   ============================================================ */
+const CONFIG = {
+  groom: "Saaid",
+  bride: "Ayesha",
+  groomFull: "Saaid Bashir",
+  brideFull: "Ayesha Choudhary",
+  // Event start, with timezone offset (IST = +05:30)
+  eventStart: "2026-10-24T14:00:00+05:30",
+  eventEnd:   "2026-10-24T19:00:00+05:30",
+  venueName: "The Aagaz Resort",
+  venueAddress: "Nowgam, Srinagar",
+  mapsUrl: "https://share.google/dB7g1H3ZVYxp0CFsR",
+  schedule: [
+    { time: "2:00 PM", title: "Guest Arrival" },
+    { time: "2:30 PM", title: "Nikkah Ceremony" },
+    { time: "6:00 PM", title: "Lunch" },
+    { time: "8:00 PM", title: "Dinner" },
+    { time: "9:00 PM", title: "Dance" }
+  ],
+  endedMessage: "Thank you for celebrating with us."
+};
+
+/* ---------- Fill in content ---------- */
+document.getElementById("n1").textContent = CONFIG.groom;
+document.getElementById("n2").textContent = CONFIG.bride;
+document.getElementById("monogram").textContent = CONFIG.groom[0] + "&" + CONFIG.bride[0];
+document.getElementById("venue-name").textContent = CONFIG.venueName;
+document.getElementById("venue-addr").textContent = CONFIG.venueAddress;
+document.getElementById("btn-map").href = CONFIG.mapsUrl;
+
+const start = new Date(CONFIG.eventStart), end = new Date(CONFIG.eventEnd);
+const pad = n => String(n).padStart(2, "0");
+document.getElementById("date-short").textContent =
+  pad(start.getDate()) + " · " + pad(start.getMonth() + 1) + " · " + String(start.getFullYear()).slice(-2);
+
+const toCal = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+document.getElementById("btn-cal").href =
+  "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+  "&text=" + encodeURIComponent(CONFIG.groomFull + " & " + CONFIG.brideFull + " Walima") +
+  "&dates=" + toCal(start) + "/" + toCal(end) +
+  "&details=" + encodeURIComponent("Walima Celebration") +
+  "&location=" + encodeURIComponent(CONFIG.venueName + ", " + CONFIG.venueAddress);
+
+const tl = document.getElementById("timeline");
+CONFIG.schedule.forEach(e => {
+  const li = document.createElement("li");
+  li.innerHTML = "<time></time><span></span>";
+  li.querySelector("time").textContent = e.time;
+  li.querySelector("span").textContent = e.title;
+  tl.appendChild(li);
+});
+
+/* ---------- Countdown ---------- */
+const el = id => document.getElementById(id);
+function tick(){
+  let diff = start - new Date();
+  if (diff <= 0) {
+    ["cd-d","cd-h","cd-m","cd-s"].forEach((id,i)=> el(id).textContent = i ? "00" : "0");
+    const msg = el("cd-msg");
+    msg.hidden = false;
+    msg.textContent = (new Date() > end) ? CONFIG.endedMessage : "The celebration has begun.";
+    return;
+  }
+  const s = Math.floor(diff / 1000);
+  el("cd-d").textContent = Math.floor(s / 86400);
+  el("cd-h").textContent = pad(Math.floor(s % 86400 / 3600));
+  el("cd-m").textContent = pad(Math.floor(s % 3600 / 60));
+  el("cd-s").textContent = pad(s % 60);
+}
+tick(); setInterval(tick, 1000);
+
+/* ---------- Opening gate + music ---------- */
+const gate = el("gate"), audio = el("audio"), musicBtn = el("music");
+let playing = false;
+function setMusic(on){
+  playing = on;
+  musicBtn.style.opacity = on ? 1 : .55;
+  musicBtn.setAttribute("aria-pressed", on);
+}
+function openInvite(){
+  if (gate.classList.contains("open")) return;
+  gate.classList.add("open");
+  document.body.classList.add("opened");
+  document.body.classList.remove("locked");
+  musicBtn.classList.add("show");
+  audio.volume = .6;
+  audio.play().then(() => setMusic(true)).catch(() => setMusic(false));
+  setTimeout(() => gate.classList.add("gone"), 2200);
+}
+gate.addEventListener("click", openInvite);
+gate.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openInvite(); } });
+musicBtn.addEventListener("click", () => {
+  if (playing) { audio.pause(); setMusic(false); }
+  else { audio.play().then(() => setMusic(true)).catch(()=>{}); }
+});
+
+/* ---------- Scroll reveal ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+}, { threshold: .15 });
+document.querySelectorAll(".reveal").forEach(n => io.observe(n));
+</script>
+</body>
+</html>
